@@ -22,6 +22,8 @@ import RefundPolicy from "./pages/RefundPolicy";
 import Products from "./pages/Products";
 import BuyingGuide from "./pages/help/BuyingGuide";
 import SellingGuide from "./pages/help/SellingGuide";
+import StartExploring from "./pages/StartExploring";
+import BecomeSeller from "./pages/BecomeSeller";
 
 const queryClient = new QueryClient();
 
@@ -49,6 +51,8 @@ const App = () => (
             <Route path="/refund-policy" element={<RefundPolicy />} />
             <Route path="/help/buying" element={<BuyingGuide />} />
             <Route path="/help/selling" element={<SellingGuide />} />
+            <Route path="/start-exploring" element={<StartExploring />} />
+            <Route path="/become-seller" element={<BecomeSeller />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

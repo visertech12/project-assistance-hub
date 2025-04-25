@@ -2,6 +2,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const CallToAction = () => {
   return (
@@ -18,12 +19,16 @@ const CallToAction = () => {
             Join thousands of developers who are building amazing products faster with premium digital assets.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button className="btn-primary text-lg px-8 py-6 flex items-center">
-              Start Exploring <ArrowRight className="ml-2 h-5 w-5 animate-pulse-slow" />
-            </Button>
-            <Button className="btn-outline text-lg px-8 py-6">
-              Become a Seller
-            </Button>
+            <Link to="/start-exploring">
+              <Button className="btn-primary text-lg px-8 py-6 flex items-center">
+                Start Exploring <ArrowRight className="ml-2 h-5 w-5 animate-pulse-slow" />
+              </Button>
+            </Link>
+            <Link to="/become-seller">
+              <Button className="btn-outline text-lg px-8 py-6">
+                Become a Seller
+              </Button>
+            </Link>
           </div>
           <p className="text-sm text-gray-500 dark:text-gray-400 mt-6">
             No credit card required • Free account available • Cancel anytime
