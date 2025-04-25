@@ -1,4 +1,3 @@
-
 import React from "react";
 import { cn } from "@/lib/utils";
 import { 
@@ -32,6 +31,8 @@ const CategoryCard = ({
     purple: "bg-purple-500/10 text-purple-500",
   };
 
+  const titleWords = title.split(' ');
+
   return (
     <div
       className="category-card neo-card cursor-pointer transition-all p-4"
@@ -40,7 +41,11 @@ const CategoryCard = ({
       <div className={cn("text-2xl sm:text-3xl p-3 sm:p-4 rounded-full w-fit", colorVariants[color as keyof typeof colorVariants])}>
         {icon}
       </div>
-      <h3 className="mt-2 sm:mt-3 font-medium text-base sm:text-lg break-words">{title}</h3>
+      <h3 className="mt-2 sm:mt-3 font-medium text-base sm:text-lg flex flex-col items-center justify-center">
+        {titleWords.map((word, index) => (
+          <span key={index} className="text-center">{word}</span>
+        ))}
+      </h3>
       <p className="text-xs sm:text-sm text-muted-foreground">{count.toLocaleString()} items</p>
     </div>
   );
