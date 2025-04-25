@@ -281,16 +281,16 @@ const FeaturedProducts = () => {
         </div>
         
         {/* Category Tabs - Scrollable on mobile */}
-        <div className="flex justify-start md:justify-center mb-6 overflow-x-auto pb-2 border-b border-gray-200 dark:border-gray-700 -mx-4 px-4 md:mx-0 md:px-0">
-          <div className="flex space-x-2 md:space-x-4 min-w-max">
+        <div className="flex justify-start md:justify-center mb-6 overflow-x-auto pb-2 -mx-4 px-4 md:mx-0 md:px-0">
+          <div className="flex gap-2 md:gap-4 min-w-max">
             {productCategories.map((category) => (
               <button
                 key={category.id}
                 onClick={() => setActiveTab(category.id)}
-                className={`px-3 md:px-4 py-2 text-sm md:text-base font-medium transition-colors whitespace-nowrap ${
+                className={`px-4 py-2 rounded-full transition-colors ${
                   activeTab === category.id 
-                    ? "tab-active" 
-                    : "text-gray-600 dark:text-gray-400 hover:text-marketplace-indigo dark:hover:text-marketplace-indigo"
+                    ? "bg-marketplace-indigo text-white" 
+                    : "bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300"
                 }`}
               >
                 {category.name}
