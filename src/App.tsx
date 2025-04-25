@@ -24,6 +24,8 @@ import BuyingGuide from "./pages/help/BuyingGuide";
 import SellingGuide from "./pages/help/SellingGuide";
 import StartExploring from "./pages/StartExploring";
 import BecomeSeller from "./pages/BecomeSeller";
+import ContactSales from "./pages/ContactSales";
+import Dashboard from "./pages/Dashboard";
 
 const queryClient = new QueryClient();
 
@@ -53,6 +55,8 @@ const App = () => (
             <Route path="/help/selling" element={<SellingGuide />} />
             <Route path="/start-exploring" element={<StartExploring />} />
             <Route path="/become-seller" element={<BecomeSeller />} />
+            <Route path="/contact-sales" element={<ContactSales />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
