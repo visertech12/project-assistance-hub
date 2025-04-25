@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./components/ThemeProvider";
+
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Privacy from "./pages/Privacy";
@@ -19,6 +20,8 @@ import AffiliateProgram from "./pages/AffiliateProgram";
 import HelpCenter from "./pages/HelpCenter";
 import RefundPolicy from "./pages/RefundPolicy";
 import Products from "./pages/Products";
+import BuyingGuide from "./pages/help/BuyingGuide";
+import SellingGuide from "./pages/help/SellingGuide";
 
 const queryClient = new QueryClient();
 
@@ -44,6 +47,8 @@ const App = () => (
             <Route path="/affiliate-program" element={<AffiliateProgram />} />
             <Route path="/help-center" element={<HelpCenter />} />
             <Route path="/refund-policy" element={<RefundPolicy />} />
+            <Route path="/help/buying" element={<BuyingGuide />} />
+            <Route path="/help/selling" element={<SellingGuide />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

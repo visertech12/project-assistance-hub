@@ -1,6 +1,6 @@
-
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import {
   Search,
   ShoppingCart,
@@ -36,13 +36,15 @@ const helpCategories = [
     id: "buying",
     icon: <ShoppingCart className="h-6 w-6" />,
     title: "Buying",
-    description: "How to purchase items, refunds, downloads"
+    description: "How to purchase items, refunds, downloads",
+    link: "/help/buying"
   },
   {
     id: "selling",
     icon: <CreditCard className="h-6 w-6" />,
     title: "Selling",
-    description: "Selling products, payments, commissions"
+    description: "Selling products, payments, commissions",
+    link: "/help/selling"
   },
   {
     id: "account",
@@ -130,13 +132,13 @@ const faqs = [
 
 const HelpCenter = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
       
       <main className="flex-grow bg-gray-50 dark:bg-gray-900">
-        {/* Hero Section with Search */}
         <section className="py-16 px-4 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
           <div className="container mx-auto text-center max-w-3xl">
             <motion.div
@@ -168,7 +170,6 @@ const HelpCenter = () => {
           </div>
         </section>
 
-        {/* Help Categories */}
         <section className="py-16 px-4 bg-white dark:bg-gray-800">
           <div className="container mx-auto">
             <motion.h2
@@ -188,7 +189,10 @@ const HelpCenter = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <Card className="hover:shadow-md transition-shadow border-0 h-full">
+                  <Card 
+                    className="hover:shadow-md transition-shadow border-0 h-full cursor-pointer"
+                    onClick={() => navigate(category.link)}
+                  >
                     <CardHeader>
                       <div className="rounded-full w-12 h-12 flex items-center justify-center bg-primary/10 mb-4">
                         {category.icon}
@@ -208,7 +212,6 @@ const HelpCenter = () => {
           </div>
         </section>
 
-        {/* Trending Articles */}
         <section className="py-16 px-4 bg-gray-50 dark:bg-gray-900">
           <div className="container mx-auto">
             <motion.div
@@ -255,7 +258,6 @@ const HelpCenter = () => {
           </div>
         </section>
 
-        {/* FAQ Section */}
         <section className="py-16 px-4 bg-white dark:bg-gray-800">
           <div className="container mx-auto">
             <motion.div
@@ -309,7 +311,6 @@ const HelpCenter = () => {
           </div>
         </section>
 
-        {/* Contact Section */}
         <section className="py-16 px-4 bg-gray-50 dark:bg-gray-900">
           <div className="container mx-auto">
             <motion.div
