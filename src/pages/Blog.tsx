@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Search, Calendar, Clock, ChevronRight } from "lucide-react";
@@ -9,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
 // Sample blog data
 const featuredPost = {
@@ -139,7 +139,7 @@ const Blog = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <a href={`/blog/${featuredPost.id}`} className="block">
+            <Link to={`/blog/${featuredPost.id}`} className="block">
               <div className="relative overflow-hidden rounded-2xl">
                 <div className="aspect-[16/9] md:aspect-[21/9] overflow-hidden">
                   <img 
@@ -173,7 +173,7 @@ const Blog = () => {
                   </div>
                 </div>
               </div>
-            </a>
+            </Link>
           </motion.div>
         </section>
 
@@ -213,35 +213,37 @@ const Blog = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                 >
-                  <Card className="overflow-hidden h-full flex flex-col bg-white dark:bg-gray-800 border-0 shadow-sm hover:shadow-md transition-shadow">
-                    <div className="aspect-[16/10] overflow-hidden">
-                      <img 
-                        src={post.coverImage} 
-                        alt={post.title}
-                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                      />
-                    </div>
-                    <CardContent className="p-5 flex flex-col flex-grow">
-                      <div className="mb-3">
-                        <Badge variant="secondary" className="text-xs">{post.category}</Badge>
+                  <Link to={`/blog/${post.id}`}>
+                    <Card className="overflow-hidden h-full flex flex-col bg-white dark:bg-gray-800 border-0 shadow-sm hover:shadow-md transition-shadow">
+                      <div className="aspect-[16/10] overflow-hidden">
+                        <img 
+                          src={post.coverImage} 
+                          alt={post.title}
+                          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                        />
                       </div>
-                      <h3 className="font-semibold text-xl mb-2 line-clamp-2 flex-grow">{post.title}</h3>
-                      <p className="text-gray-500 dark:text-gray-400 line-clamp-2 mb-4">{post.excerpt}</p>
-                      <div className="flex items-center justify-between mt-auto pt-3 border-t border-gray-100 dark:border-gray-700">
-                        <div className="flex items-center space-x-2">
-                          <Avatar className="h-7 w-7">
-                            <AvatarImage src={post.author.avatar} alt={post.author.name} />
-                            <AvatarFallback>{post.author.name.charAt(0)}</AvatarFallback>
-                          </Avatar>
-                          <span className="text-sm">{post.author.name}</span>
+                      <CardContent className="p-5 flex flex-col flex-grow">
+                        <div className="mb-3">
+                          <Badge variant="secondary" className="text-xs">{post.category}</Badge>
                         </div>
-                        <div className="text-xs text-gray-500 dark:text-gray-400 flex items-center">
-                          <Clock className="mr-1 h-3 w-3" />
-                          {post.readTime}
+                        <h3 className="font-semibold text-xl mb-2 line-clamp-2 flex-grow">{post.title}</h3>
+                        <p className="text-gray-500 dark:text-gray-400 line-clamp-2 mb-4">{post.excerpt}</p>
+                        <div className="flex items-center justify-between mt-auto pt-3 border-t border-gray-100 dark:border-gray-700">
+                          <div className="flex items-center space-x-2">
+                            <Avatar className="h-7 w-7">
+                              <AvatarImage src={post.author.avatar} alt={post.author.name} />
+                              <AvatarFallback>{post.author.name.charAt(0)}</AvatarFallback>
+                            </Avatar>
+                            <span className="text-sm">{post.author.name}</span>
+                          </div>
+                          <div className="text-xs text-gray-500 dark:text-gray-400 flex items-center">
+                            <Clock className="mr-1 h-3 w-3" />
+                            {post.readTime}
+                          </div>
                         </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                      </CardContent>
+                    </Card>
+                  </Link>
                 </motion.div>
               ))}
             </div>

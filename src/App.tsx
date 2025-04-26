@@ -26,6 +26,7 @@ import StartExploring from "./pages/StartExploring";
 import BecomeSeller from "./pages/BecomeSeller";
 import ContactSales from "./pages/ContactSales";
 import Dashboard from "./pages/Dashboard";
+import BlogDetails from "./pages/BlogDetails";
 
 const queryClient = new QueryClient();
 
@@ -48,6 +49,7 @@ const App = () => (
             <Route path="/register" element={<Register />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<BlogDetails />} />
             <Route path="/affiliate-program" element={<AffiliateProgram />} />
             <Route path="/help-center" element={<HelpCenter />} />
             <Route path="/refund-policy" element={<RefundPolicy />} />
