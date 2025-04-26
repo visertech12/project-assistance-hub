@@ -1,5 +1,5 @@
 
-import { ChartBar, ChartLine, Download, Settings } from "lucide-react";
+import { ChartBar, ChartLine, Download, FileCode, Settings } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Dashboard = () => {

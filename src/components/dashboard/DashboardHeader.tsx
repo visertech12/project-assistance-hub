@@ -1,5 +1,5 @@
 
-import { Bell, Mail } from "lucide-react";
+import { Bell, Mail, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 
