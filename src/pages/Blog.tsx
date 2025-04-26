@@ -131,7 +131,7 @@ const Blog = () => {
     <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900">
       <Header />
       
-      <main className="flex-grow container mx-auto px-4 py-8 md:py-16">
+      <main className="flex-grow container mx-auto px-4 pt-28 py-8 md:py-16">
         {/* Featured Post */}
         <section className="mb-16">
           <motion.div

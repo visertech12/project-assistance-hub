@@ -1,6 +1,7 @@
+
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Search, ShoppingCart, Menu, User, X } from "lucide-react";
+import { Search, ShoppingCart, Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { 
   NavigationMenu,
@@ -39,6 +40,8 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const isProductDetail = location.pathname.includes('/product/');
+  const isBlogDetail = location.pathname.includes('/blog/');
+  const shouldApplyBackground = isScrolled || isProductDetail || isBlogDetail || isMobileMenuOpen;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -94,7 +97,7 @@ const Header = () => {
     <header 
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full",
-        isScrolled || isProductDetail || isMobileMenuOpen
+        shouldApplyBackground
           ? "bg-white/90 dark:bg-marketplace-obsidian/90 backdrop-blur-md shadow-md py-2 sm:py-3" 
           : "bg-transparent py-3 sm:py-5"
       )}
