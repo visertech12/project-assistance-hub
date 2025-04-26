@@ -1,5 +1,5 @@
 
-import { FileDown, Script } from "lucide-react";
+import { FileDown, FileScript } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -13,7 +13,7 @@ const DownloadItem = ({ title, description, size, downloads }: {
     <CardHeader>
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Script className="h-5 w-5 text-marketplace-indigo" />
+          <FileScript className="h-5 w-5 text-marketplace-indigo" />
           <CardTitle className="text-lg">{title}</CardTitle>
         </div>
         <Button size="sm" variant="outline" className="flex items-center gap-2">
