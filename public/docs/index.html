@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,23 +72,55 @@ npm run dev
         <section id="file-structure">
             <h2>File Structure</h2>
             <div class="file-tree">
-                <pre>
-codemarket/
-├── public/
-│   ├── docs/
-│   └── images/
-├── src/
-│   ├── components/
-│   │   ├── Header.tsx
-│   │   ├── Footer.tsx
-│   │   └── ui/
-│   ├── pages/
-│   │   ├── Blog.tsx
-│   │   ├── Products.tsx
-│   │   └── ...
-│   ├── hooks/
-│   └── lib/
-└── package.json</pre>
+                <div class="file-item" data-delay="0">
+                    <span class="icon">📁</span>
+                    <span>src/</span>
+                    <div class="file-description">
+                        Main source directory containing all application code
+                    </div>
+                </div>
+                <div class="file-item" data-delay="100">
+                    <span class="icon">📁</span>
+                    <span>components/</span>
+                    <div class="file-description">
+                        Reusable React components (Button, Card, Header, etc.)
+                    </div>
+                </div>
+                <div class="file-item" data-delay="200">
+                    <span class="icon">📁</span>
+                    <span>pages/</span>
+                    <div class="file-description">
+                        Page components for different routes (Home, About, Blog, etc.)
+                    </div>
+                </div>
+                <div class="file-item" data-delay="300">
+                    <span class="icon">📁</span>
+                    <span>hooks/</span>
+                    <div class="file-description">
+                        Custom React hooks for shared logic
+                    </div>
+                </div>
+                <div class="file-item" data-delay="400">
+                    <span class="icon">📁</span>
+                    <span>utils/</span>
+                    <div class="file-description">
+                        Utility functions and helper methods
+                    </div>
+                </div>
+                <div class="file-item" data-delay="500">
+                    <span class="icon">📄</span>
+                    <span>App.tsx</span>
+                    <div class="file-description">
+                        Main application component with routing setup
+                    </div>
+                </div>
+                <div class="file-item" data-delay="600">
+                    <span class="icon">📄</span>
+                    <span>index.tsx</span>
+                    <div class="file-description">
+                        Application entry point
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -139,6 +170,40 @@ codemarket/
             </ol>
         </section>
     </main>
+
+    <footer class="docs-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About CodeMarket</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Company</a></li>
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">API Reference</a></li>
+                    <li><a href="#">Tutorials</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">License</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 CodeMarket. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
