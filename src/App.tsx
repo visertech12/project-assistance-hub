@@ -28,6 +28,7 @@ import ContactSales from "./pages/ContactSales";
 import Dashboard from "./pages/Dashboard";
 import BlogDetails from "./pages/BlogDetails";
 import Downloads from "./pages/Downloads";
+import DashboardLayout from "./layouts/DashboardLayout";
 
 const queryClient = new QueryClient();
 
@@ -59,8 +60,12 @@ const App = () => (
             <Route path="/start-exploring" element={<StartExploring />} />
             <Route path="/become-seller" element={<BecomeSeller />} />
             <Route path="/contact-sales" element={<ContactSales />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/downloads" element={<Downloads />} />
+            <Route path="/dashboard" element={<DashboardLayout />}>
+              <Route index element={<Dashboard />} />
+              <Route path="downloads" element={<Downloads />} />
+              <Route path="profile" element={<div>Profile page coming soon</div>} />
+              <Route path="settings" element={<div>Settings page coming soon</div>} />
+            </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
