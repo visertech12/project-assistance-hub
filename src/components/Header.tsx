@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Search, ShoppingCart, Menu, X } from "lucide-react";
@@ -90,6 +89,12 @@ const Header = () => {
       title: "Utilities",
       description: "Helper tools and utilities",
       href: "/products?category=utilities"
+    },
+    {
+      icon: "⬇️",
+      title: "Downloads",
+      description: "Browse and download useful scripts",
+      href: "/downloads"
     }
   ];
 

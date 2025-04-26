@@ -27,6 +27,7 @@ import BecomeSeller from "./pages/BecomeSeller";
 import ContactSales from "./pages/ContactSales";
 import Dashboard from "./pages/Dashboard";
 import BlogDetails from "./pages/BlogDetails";
+import Downloads from "./pages/Downloads";
 
 const queryClient = new QueryClient();
 
@@ -59,6 +60,7 @@ const App = () => (
             <Route path="/become-seller" element={<BecomeSeller />} />
             <Route path="/contact-sales" element={<ContactSales />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/downloads" element={<Downloads />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
