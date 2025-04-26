@@ -1,4 +1,5 @@
-// Search functionality
+
+// Search functionality with improved animation
 const searchInput = document.getElementById('searchInput');
 const navLinks = document.querySelectorAll('.nav-links a');
 
@@ -7,15 +8,21 @@ searchInput.addEventListener('input', (e) => {
     
     navLinks.forEach(link => {
         const text = link.textContent.toLowerCase();
+        const parent = link.parentElement;
+        
         if (text.includes(searchTerm)) {
-            link.style.display = 'block';
+            parent.style.display = 'block';
+            parent.style.animation = 'fadeIn 0.3s ease-out';
         } else {
-            link.style.display = 'none';
+            parent.style.animation = 'fadeOut 0.3s ease-out';
+            setTimeout(() => {
+                parent.style.display = 'none';
+            }, 300);
         }
     });
 });
 
-// Smooth scrolling for anchor links
+// Enhanced smooth scrolling with highlight effect
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -27,14 +34,23 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 behavior: 'smooth'
             });
             
-            // Update active state
-            navLinks.forEach(link => link.classList.remove('active'));
+            // Update active state with animation
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                link.style.animation = '';
+            });
             this.classList.add('active');
+            this.style.animation = 'scaleIn 0.3s ease-out';
+            
+            // Add highlight effect to target section
+            targetElement.style.animation = 'none';
+            targetElement.offsetHeight; // Trigger reflow
+            targetElement.style.animation = 'highlight 1s ease-out';
         }
     });
 });
 
-// Active section highlighting based on scroll
+// Active section highlighting based on scroll position
 window.addEventListener('scroll', () => {
     const sections = document.querySelectorAll('section');
     
@@ -44,27 +60,21 @@ window.addEventListener('scroll', () => {
         
         if (rect.top <= 150 && rect.bottom >= 150) {
             navLinks.forEach(l => l.classList.remove('active'));
-            if (link) link.classList.add('active');
+            if (link) {
+                link.classList.add('active');
+                link.style.animation = 'scaleIn 0.3s ease-out';
+            }
         }
     });
 });
 
-// Mobile menu toggle
+// Mobile menu toggle with animation
 let isMobileMenuOpen = false;
 
 function createMobileMenuToggle() {
     const toggle = document.createElement('button');
     toggle.className = 'menu-toggle';
     toggle.innerHTML = '☰';
-    toggle.style.cssText = `
-        background: var(--primary);
-        color: white;
-        border: none;
-        padding: 0.5rem 1rem;
-        border-radius: 4px;
-        cursor: pointer;
-        display: none;
-    `;
 
     document.body.appendChild(toggle);
 
@@ -73,96 +83,61 @@ function createMobileMenuToggle() {
         const sidebar = document.querySelector('.sidebar');
         sidebar.classList.toggle('active');
         toggle.innerHTML = isMobileMenuOpen ? '✕' : '☰';
+        
+        // Add slide animation
+        sidebar.style.animation = isMobileMenuOpen 
+            ? 'slideInLeft 0.3s ease-out'
+            : 'slideInRight 0.3s ease-out';
     });
 
-    // Show/hide toggle based on screen size
+    // Handle screen size changes
     const mediaQuery = window.matchMedia('(max-width: 768px)');
     function handleScreenSize(e) {
         toggle.style.display = e.matches ? 'block' : 'none';
+        if (!e.matches) {
+            isMobileMenuOpen = false;
+            document.querySelector('.sidebar').classList.remove('active');
+        }
     }
     mediaQuery.addListener(handleScreenSize);
     handleScreenSize(mediaQuery);
 }
 
+// Initialize mobile menu
 createMobileMenuToggle();
 
-// Animation for file structure items
+// File structure animations
 document.addEventListener('DOMContentLoaded', () => {
     const fileItems = document.querySelectorAll('.file-item');
     
-    fileItems.forEach((item) => {
-        const delay = item.getAttribute('data-delay');
-        item.style.animationDelay = `${delay}ms`;
+    // Stagger the animation of file items
+    fileItems.forEach((item, index) => {
+        item.style.animationDelay = `${index * 100}ms`;
     });
-});
-
-// Mobile menu functionality
-let isMobileMenuOpen = false;
-
-function createMobileMenuToggle() {
-    const toggle = document.createElement('button');
-    toggle.className = 'menu-toggle';
-    toggle.innerHTML = '☰';
-    toggle.style.cssText = `
-        background: var(--primary);
-        color: white;
-        border: none;
-        padding: 0.5rem 1rem;
-        border-radius: 4px;
-        cursor: pointer;
-        display: none;
-    `;
-
-    document.body.appendChild(toggle);
-
-    toggle.addEventListener('click', () => {
-        isMobileMenuOpen = !isMobileMenuOpen;
-        const sidebar = document.querySelector('.sidebar');
-        sidebar.classList.toggle('active');
-        toggle.innerHTML = isMobileMenuOpen ? '✕' : '☰';
-    });
-
-    // Show/hide toggle based on screen size
-    const mediaQuery = window.matchMedia('(max-width: 768px)');
-    function handleScreenSize(e) {
-        toggle.style.display = e.matches ? 'block' : 'none';
-    }
-    mediaQuery.addListener(handleScreenSize);
-    handleScreenSize(mediaQuery);
-}
-
-createMobileMenuToggle();
-
-// Smooth scrolling
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-            targetElement.scrollIntoView({
-                behavior: 'smooth'
-            });
-            
-            // Update active state
-            navLinks.forEach(link => link.classList.remove('active'));
-            this.classList.add('active');
-        }
-    });
-});
-
-// Active section highlighting
-window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section');
     
-    sections.forEach(section => {
-        const rect = section.getBoundingClientRect();
-        const link = document.querySelector(`a[href="#${section.id}"]`);
+    // Add hover animations
+    fileItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            item.style.transform = 'translateX(10px) scale(1.02)';
+        });
         
-        if (rect.top <= 150 && rect.bottom >= 150) {
-            navLinks.forEach(l => l.classList.remove('active'));
-            if (link) link.classList.add('active');
+        item.addEventListener('mouseleave', () => {
+            item.style.transform = 'translateX(0) scale(1)';
+        });
+    });
+});
+
+// Add intersection observer for scroll animations
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.animation = 'fadeIn 0.5s ease-out forwards';
         }
     });
+}, {
+    threshold: 0.1
+});
+
+document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
 });

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,56 +16,64 @@
         </div>
         <ul class="nav-links">
             <li><a href="#getting-started" class="active">Getting Started</a></li>
-            <li><a href="#installation">Installation</a></li>
+            <li><a href="#installation">Installation Guide</a></li>
             <li><a href="#file-structure">File Structure</a></li>
             <li><a href="#components">Components</a></li>
-            <li><a href="#customization">Customization</a></li>
+            <li><a href="#pages">Pages & Routes</a></li>
+            <li><a href="#styles">Styling Guide</a></li>
             <li><a href="#deployment">Deployment</a></li>
+            <li><a href="#faq">FAQ</a></li>
         </ul>
     </nav>
 
     <main class="content">
         <section id="getting-started">
             <h1>CodeMarket Documentation</h1>
-            <p class="intro">Welcome to the CodeMarket documentation. This guide will help you understand the structure and usage of the CodeMarket website.</p>
+            <p class="intro">Welcome to the comprehensive documentation for CodeMarket - your premier digital marketplace for code and development resources.</p>
             
             <div class="quick-links">
-                <h2>Quick Links</h2>
+                <h2>Quick Start Guide</h2>
                 <div class="cards">
                     <div class="card">
                         <div class="card-icon">📦</div>
                         <h3>Installation</h3>
-                        <p>Get started with setting up the project locally</p>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon">📁</div>
-                        <h3>File Structure</h3>
-                        <p>Learn about project organization</p>
+                        <p>Set up your local development environment</p>
                     </div>
                     <div class="card">
                         <div class="card-icon">🎨</div>
-                        <h3>Customization</h3>
-                        <p>Modify styles and components</p>
+                        <h3>UI Components</h3>
+                        <p>Explore our pre-built components</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🚀</div>
+                        <h3>Deployment</h3>
+                        <p>Launch your marketplace</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="installation">
-            <h2>Installation</h2>
+            <h2>Installation Guide</h2>
             <div class="code-block">
                 <pre><code>
 # Clone the repository
-git clone &lt;your-repo-url&gt;
+git clone https://github.com/your-username/codemarket.git
 
 # Navigate to project directory
 cd codemarket
 
-# Install dependencies
+# Install all dependencies
 npm install
 
 # Start development server
 npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
                 </code></pre>
             </div>
         </section>
@@ -72,102 +81,157 @@ npm run dev
         <section id="file-structure">
             <h2>File Structure</h2>
             <div class="file-tree">
-                <div class="file-item" data-delay="0">
+                <div class="file-item" data-delay="100">
                     <span class="icon">📁</span>
                     <span>src/</span>
                     <div class="file-description">
-                        Main source directory containing all application code
+                        Root source directory containing all application code
+                        <ul>
+                            <li>Main application logic</li>
+                            <li>Component definitions</li>
+                            <li>Routing configuration</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="file-item" data-delay="100">
-                    <span class="icon">📁</span>
-                    <span>components/</span>
-                    <div class="file-description">
-                        Reusable React components (Button, Card, Header, etc.)
-                    </div>
-                </div>
+                
                 <div class="file-item" data-delay="200">
                     <span class="icon">📁</span>
-                    <span>pages/</span>
+                    <span>src/components/</span>
                     <div class="file-description">
-                        Page components for different routes (Home, About, Blog, etc.)
+                        Reusable React components
+                        <ul>
+                            <li>Header.tsx - Main navigation component</li>
+                            <li>Footer.tsx - Site-wide footer</li>
+                            <li>ProductCard.tsx - Product display component</li>
+                            <li>SearchBar.tsx - Search functionality</li>
+                        </ul>
                     </div>
                 </div>
+
                 <div class="file-item" data-delay="300">
                     <span class="icon">📁</span>
-                    <span>hooks/</span>
+                    <span>src/pages/</span>
                     <div class="file-description">
-                        Custom React hooks for shared logic
+                        Page components and routes
+                        <ul>
+                            <li>Home.tsx - Landing page</li>
+                            <li>Products.tsx - Product listing</li>
+                            <li>About.tsx - About page</li>
+                            <li>Contact.tsx - Contact form</li>
+                        </ul>
                     </div>
                 </div>
+
                 <div class="file-item" data-delay="400">
                     <span class="icon">📁</span>
-                    <span>utils/</span>
+                    <span>src/styles/</span>
                     <div class="file-description">
-                        Utility functions and helper methods
+                        Styling and theme files
+                        <ul>
+                            <li>global.css - Global styles</li>
+                            <li>variables.css - CSS variables</li>
+                            <li>animations.css - Custom animations</li>
+                        </ul>
                     </div>
                 </div>
+
                 <div class="file-item" data-delay="500">
-                    <span class="icon">📄</span>
-                    <span>App.tsx</span>
+                    <span class="icon">📁</span>
+                    <span>public/</span>
                     <div class="file-description">
-                        Main application component with routing setup
-                    </div>
-                </div>
-                <div class="file-item" data-delay="600">
-                    <span class="icon">📄</span>
-                    <span>index.tsx</span>
-                    <div class="file-description">
-                        Application entry point
+                        Static assets and resources
+                        <ul>
+                            <li>images/ - Image assets</li>
+                            <li>fonts/ - Custom fonts</li>
+                            <li>icons/ - Site icons</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="components">
-            <h2>Components</h2>
+            <h2>Core Components</h2>
             <div class="component-grid">
                 <div class="component-card">
                     <h3>Header Component</h3>
-                    <p>Main navigation component with responsive design</p>
+                    <p>Main navigation with responsive design</p>
                     <p>Location: <code>src/components/Header.tsx</code></p>
+                    <div class="component-details">
+                        <h4>Features:</h4>
+                        <ul>
+                            <li>Responsive mobile menu</li>
+                            <li>Search integration</li>
+                            <li>User account dropdown</li>
+                            <li>Shopping cart indicator</li>
+                        </ul>
+                    </div>
                 </div>
+
                 <div class="component-card">
-                    <h3>Footer Component</h3>
-                    <p>Site footer with links and information</p>
-                    <p>Location: <code>src/components/Footer.tsx</code></p>
-                </div>
-                <div class="component-card">
-                    <h3>Blog Component</h3>
-                    <p>Blog listing and article display</p>
-                    <p>Location: <code>src/pages/Blog.tsx</code></p>
+                    <h3>ProductCard Component</h3>
+                    <p>Product display with hover effects</p>
+                    <p>Location: <code>src/components/ProductCard.tsx</code></p>
+                    <div class="component-details">
+                        <h4>Features:</h4>
+                        <ul>
+                            <li>Image optimization</li>
+                            <li>Price formatting</li>
+                            <li>Rating display</li>
+                            <li>Quick add to cart</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="customization">
-            <h2>Customization</h2>
-            <div class="customization-guide">
-                <h3>Styling</h3>
-                <p>The project uses Tailwind CSS for styling. Main configuration file: <code>tailwind.config.ts</code></p>
-                
-                <h3>Theme Colors</h3>
+        <section id="pages">
+            <h2>Pages & Routes</h2>
+            <div class="routes-section">
+                <div class="route-item">
+                    <h3>Home Page (<code>/</code>)</h3>
+                    <p>Landing page with featured products and categories</p>
+                    <ul>
+                        <li>Hero section with search</li>
+                        <li>Featured products carousel</li>
+                        <li>Category navigation</li>
+                        <li>Latest additions</li>
+                    </ul>
+                </div>
+
+                <div class="route-item">
+                    <h3>Product Details (<code>/product/:id</code>)</h3>
+                    <p>Detailed product information and purchase options</p>
+                    <ul>
+                        <li>Product gallery</li>
+                        <li>Technical specifications</li>
+                        <li>User reviews</li>
+                        <li>Related products</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="styles">
+            <h2>Styling Guide</h2>
+            <div class="style-guide">
                 <div class="color-palette">
-                    <div class="color-item" style="background: var(--primary)">Primary</div>
-                    <div class="color-item" style="background: var(--secondary)">Secondary</div>
-                    <div class="color-item" style="background: var(--accent)">Accent</div>
+                    <h3>Color Palette</h3>
+                    <div class="colors">
+                        <div class="color-item" style="background: var(--primary)">Primary</div>
+                        <div class="color-item" style="background: var(--secondary)">Secondary</div>
+                        <div class="color-item" style="background: var(--accent)">Accent</div>
+                    </div>
+                </div>
+
+                <div class="typography">
+                    <h3>Typography</h3>
+                    <p class="font-example size-sm">Small Text - 14px</p>
+                    <p class="font-example size-base">Base Text - 16px</p>
+                    <p class="font-example size-lg">Large Text - 18px</p>
+                    <p class="font-example size-xl">Extra Large - 24px</p>
                 </div>
             </div>
-        </section>
-
-        <section id="deployment">
-            <h2>Deployment</h2>
-            <p>Follow these steps to deploy your CodeMarket website:</p>
-            <ol class="steps">
-                <li>Build the project: <code>npm run build</code></li>
-                <li>Test the build locally: <code>npm run preview</code></li>
-                <li>Deploy to your hosting platform</li>
-            </ol>
         </section>
     </main>
 
@@ -176,10 +240,10 @@ npm run dev
             <div class="footer-section">
                 <h3>About CodeMarket</h3>
                 <ul class="footer-links">
-                    <li><a href="#">Company</a></li>
-                    <li><a href="#">Team</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Team</a></li>
                     <li><a href="#">Careers</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Press Kit</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -187,16 +251,17 @@ npm run dev
                 <ul class="footer-links">
                     <li><a href="#">Documentation</a></li>
                     <li><a href="#">API Reference</a></li>
-                    <li><a href="#">Tutorials</a></li>
-                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Community Forum</a></li>
+                    <li><a href="#">Developer Blog</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Legal</h3>
                 <ul class="footer-links">
-                    <li><a href="#">Privacy Policy</a></li>
                     <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">License</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                    <li><a href="#">Licenses</a></li>
                 </ul>
             </div>
         </div>
