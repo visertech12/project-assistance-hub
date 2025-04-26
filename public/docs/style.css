@@ -10,6 +10,7 @@
     --sidebar-width: 280px;
 }
 
+/* Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -33,221 +34,200 @@ body {
     border-right: 1px solid #eaeaea;
     transform: translateX(0);
     transition: transform 0.3s ease;
+    z-index: 1000;
 }
 
+/* Enhanced Logo Animation */
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 2rem;
     color: var(--primary);
-    animation: fadeIn 0.5s ease-out;
+    position: relative;
+    animation: logoFloat 3s ease-in-out infinite;
 }
 
+@keyframes logoFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Improved Search Box */
 .search-box {
     margin-bottom: 2rem;
+    position: relative;
     animation: slideIn 0.5s ease-out;
 }
 
 .search-box input {
     width: 100%;
-    padding: 0.75rem;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
     border: 1px solid #eaeaea;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 0.9rem;
     transition: all 0.3s ease;
+    background: #fff;
 }
 
-.search-box input:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 2px rgba(100, 108, 255, 0.1);
+.search-box::before {
+    content: '🔍';
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: #999;
 }
 
+/* Enhanced Navigation Links */
 .nav-links {
     list-style: none;
 }
+
+.nav-links li {
+    opacity: 0;
+    animation: fadeInLeft 0.5s ease-out forwards;
+}
+
+.nav-links li:nth-child(1) { animation-delay: 0.1s; }
+.nav-links li:nth-child(2) { animation-delay: 0.2s; }
+.nav-links li:nth-child(3) { animation-delay: 0.3s; }
+.nav-links li:nth-child(4) { animation-delay: 0.4s; }
+.nav-links li:nth-child(5) { animation-delay: 0.5s; }
 
 .nav-links a {
     display: block;
     padding: 0.75rem;
     color: var(--text-secondary);
     text-decoration: none;
-    border-radius: 6px;
+    border-radius: 8px;
     margin-bottom: 0.5rem;
     transition: all 0.3s ease;
-    animation: slideInLeft 0.5s ease-out;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-    background: #eef2ff;
-    color: var(--primary);
-    transform: translateX(5px);
-}
-
-.content {
-    margin-left: var(--sidebar-width);
-    padding: 2rem;
-    width: calc(100% - var(--sidebar-width));
-}
-
-section {
-    margin-bottom: 4rem;
-    opacity: 0;
-    animation: fadeIn 0.5s ease-out forwards;
-}
-
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    color: var(--text-primary);
-    animation: slideInTop 0.5s ease-out;
-}
-
-h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    color: var(--text-primary);
     position: relative;
-    padding-bottom: 0.5rem;
+    overflow: hidden;
 }
 
-h2::after {
+.nav-links a::before {
     content: '';
     position: absolute;
-    bottom: 0;
     left: 0;
-    width: 60px;
-    height: 3px;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
     background: var(--primary);
-    animation: expandWidth 0.5s ease-out;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
 }
 
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
+.nav-links a:hover::before {
+    transform: translateX(0);
 }
 
-.card {
+/* File Structure Cards */
+.file-item {
     background: white;
-    padding: 1.5rem;
+    padding: 1rem;
     border-radius: 8px;
+    margin: 1rem 0;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     transition: all 0.3s ease;
-    animation: scaleIn 0.5s ease-out;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.file-tree {
-    background: #f8f9fa;
-    padding: 1.5rem;
-    border-radius: 8px;
-    margin-bottom: 2rem;
-}
-
-.file-item {
+    cursor: pointer;
     opacity: 0;
-    transform: translateX(-20px);
-    animation: slideIn 0.5s ease-out forwards;
-    display: flex;
-    align-items: flex-start;
-    padding: 1rem;
-    margin: 0.5rem 0;
-    border-radius: 6px;
-    background: white;
-    transition: all 0.3s ease;
+    transform: translateY(20px);
+    animation: slideUpFade 0.5s ease-out forwards;
 }
 
 .file-item:hover {
-    background: #eef2ff;
-    transform: translateX(0) scale(1.02);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-.file-description {
-    margin-left: 1rem;
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-}
-
-.file-description ul {
-    margin-top: 0.5rem;
-    margin-left: 1.5rem;
-}
-
-.file-description li {
-    margin: 0.25rem 0;
-    color: var(--text-secondary);
-}
-
+/* Component Showcase */
 .component-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    margin-top: 2rem;
+    padding: 2rem;
 }
 
 .component-card {
     background: white;
     padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.component-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+.component-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: left;
 }
 
-.route-item {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    animation: slideInRight 0.5s ease-out;
+.component-card:hover::before {
+    transform: scaleX(1);
 }
 
-.style-guide {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+/* Enhanced Footer */
+.footer {
+    background: #f8f9fa;
+    padding: 3rem 2rem;
+    margin-top: 4rem;
+    border-top: 1px solid #eaeaea;
 }
 
-.color-palette {
-    margin-bottom: 2rem;
-}
-
-.colors {
+.footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 1rem;
-    margin-top: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.color-item {
-    padding: 2rem;
-    border-radius: 6px;
-    color: white;
-    text-align: center;
-    font-weight: 500;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+.footer-section {
     animation: fadeIn 0.5s ease-out;
 }
 
+.footer-section h3 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section li {
+    margin: 0.5rem 0;
+}
+
+.footer-section a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: var(--primary);
+}
+
+/* Animations */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
-@keyframes slideIn {
+@keyframes fadeInLeft {
     from {
         opacity: 0;
         transform: translateX(-20px);
@@ -258,7 +238,7 @@ h2::after {
     }
 }
 
-@keyframes slideInLeft {
+@keyframes slideIn {
     from {
         opacity: 0;
         transform: translateX(-30px);
@@ -269,21 +249,10 @@ h2::after {
     }
 }
 
-@keyframes slideInRight {
+@keyframes slideUpFade {
     from {
         opacity: 0;
-        transform: translateX(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes slideInTop {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
@@ -291,26 +260,10 @@ h2::after {
     }
 }
 
-@keyframes scaleIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes expandWidth {
-    from { width: 0; }
-    to { width: 60px; }
-}
-
+/* Responsive Design */
 @media (max-width: 768px) {
     .sidebar {
         transform: translateX(-100%);
-        z-index: 1000;
     }
 
     .sidebar.active {
@@ -319,29 +272,11 @@ h2::after {
 
     .content {
         margin-left: 0;
-        width: 100%;
         padding: 1rem;
-    }
-
-    .menu-toggle {
-        display: block;
-        position: fixed;
-        top: 1rem;
-        left: 1rem;
-        z-index: 1001;
-        padding: 0.5rem;
-        background: var(--primary);
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-    .cards {
-        grid-template-columns: 1fr;
     }
 
     .component-grid {
         grid-template-columns: 1fr;
     }
 }
+
