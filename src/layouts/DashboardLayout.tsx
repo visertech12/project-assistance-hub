@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
@@ -10,7 +9,7 @@ import {
   SidebarMenuButton,
   SidebarHeader,
 } from "@/components/ui/sidebar";
-import { Download, LayoutDashboard, Settings, User } from "lucide-react";
+import { LayoutDashboard, Settings } from "lucide-react";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
 import DashboardFooter from "@/components/dashboard/DashboardFooter";
 import { Link, Outlet } from "react-router-dom";
@@ -21,16 +20,6 @@ const DashboardLayout = () => {
       title: "Dashboard",
       icon: LayoutDashboard,
       path: "/dashboard"
-    },
-    {
-      title: "Downloads",
-      icon: Download,
-      path: "/dashboard/downloads"
-    },
-    {
-      title: "Profile",
-      icon: User,
-      path: "/dashboard/profile"
     },
     {
       title: "Settings",
