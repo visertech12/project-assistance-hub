@@ -10,6 +10,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import CodeMarketLogo from "./CodeMarketLogo";
 
 const Footer = () => {
   return (
@@ -20,12 +21,10 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <div className="mb-4">
-              <h2 className="text-2xl font-bold gradient-text">CodeMarket</h2>
+              <Link to="/">
+                <CodeMarketLogo />
+              </Link>
             </div>
-            <p className="text-gray-300 mb-6 max-w-md">
-              The premier marketplace for high-quality code, scripts, themes, and plugins. 
-              Empower your development workflow with trusted digital assets.
-            </p>
             
             {/* Newsletter */}
             <div className="mb-6">

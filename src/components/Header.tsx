@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Search, ShoppingCart, Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
+import CodeMarketLogo from "./CodeMarketLogo";
 import { 
   NavigationMenu,
   NavigationMenuContent,
@@ -109,7 +110,9 @@ const Header = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="text-xl sm:text-2xl font-bold gradient-text">CodeMarket</Link>
+          <Link to="/">
+            <CodeMarketLogo />
+          </Link>
 
           <div className="hidden md:flex items-center space-x-6">
             <Link to="/" className="text-sm font-medium hover:text-marketplace-indigo">Home</Link>
